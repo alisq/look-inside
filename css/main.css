@@ -96,7 +96,9 @@ header {
   grid-column-gap: 2em; }
 
 label {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  width: 8em;
+  display: inline-block; }
 
 button {
   font-size: 1em;
