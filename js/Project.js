@@ -52,20 +52,25 @@ class Project {
         /* html */
         let full = `
             <div class='project-full ${this.instructor_machine} ${this.course_machine}' data-id='${i}'>   
-                <div class="interior">
-                <button class='close'>&times;</button>
+            <button class='close'>&times;</button>    
+            <div class="interior">
+                
                 <div class='gallery ${(this.project_images.length > 1) || (this.video != '') ? 'carousel' : null}' >
                 ${this.video}
                 ${this.project_images.map(pi => `<div class='image'><img src='http://lookinside.ocadu.gd/${pi}' /></div>`).join("")}
                 
                 </div>
                 
+                <div class='project-details'>
                 <h2>${this.title}</h2>
                 <h3>${this.student}</h3>
-                ${this.desc}
+                <div>${this.desc}</div>
+                <div>
                 <div class='instructor'><label>Instructor:</label> ${this.instructor}</div>
                 <div class='class'><label>Course:</label> ${this.course}</div>
                 <div class='year'><label>Year:</label> ${this.year}</div>
+                </div>
+                </div>
                 </div>
             </div>
 

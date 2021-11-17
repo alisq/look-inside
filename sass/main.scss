@@ -97,7 +97,7 @@ header {
     background:rgba(255,255,255,0.9);
     top:0;
     left:0;
-    overflow:scroll;
+    
     
 
     & .interior {
@@ -112,7 +112,8 @@ header {
         border-left:1px solid #000;
         border-right:1px solid #000;
         padding:2em;
-
+        overflow-y:scroll;
+        overflow-x:visible;
 
 
     }
@@ -120,6 +121,16 @@ header {
     
 }
 
+.project-details {
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap:2em;
+}
+
+
+label {
+    text-transform:uppercase;
+}
 button {
     font-size:1em;
     padding: 0.5em 1em;
@@ -153,15 +164,34 @@ button.close {
     border-radius:50%;
     position:absolute;
     top:0;
-    right:0;
+    left:50%;
     z-index:2;
-    transform:translate(0.75em, -0.25em);
+    transform:translate(565px, -0.25em);
     cursor:pointer;
 
-
+ 
 }
 
 button.close:hover {
     background:#000;
     color:#FFF;
+}
+
+
+@media (max-width:1200px) {
+    #container {
+        column-count:3;
+    }
+
+    button.close {
+        top:0;
+        right:0;
+        transform:none;
+    }
+}
+
+@media (max-width:800px) {
+    #container {
+        column-count:2;
+    }
 }
