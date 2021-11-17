@@ -1,0 +1,46 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+@font-face {
+    font-family: 'standard';
+    src: url('fonts/standard-book-webfont.woff2') format('woff2');
+}
+
+
+
+body {
+    font-family:'standard'
+}
+
+img {
+    max-width:100%;
+}
+
+#container {
+    column-count:4;
+    column-gap:2em;
+    max-width:1600px;
+    margin:auto;
+}
+
+.project-teaser {
+    break-inside: avoid;
+    margin-bottom:2em;
+
+    & img {
+        width:100%;
+    }
+}
+
+
+.project-full {
+    position:fixed;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+}
