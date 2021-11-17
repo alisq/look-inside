@@ -32,6 +32,10 @@ header {
     margin:auto;
 }
 
+#menu-classes {
+    grid-column: span 2;   
+}
+
 .gallery,
 .image {
     max-width:100%;
@@ -102,6 +106,23 @@ header {
     }
     
     
+}
+
+button {
+    font-size:1em;
+    padding: 0.5em 1em;
+    border:1px solid #000;
+    background:#000;
+    color:#FFF;
+    border-radius: 1em;
+    margin:0.25em;
+    cursor:pointer;
+
+    &:hover,
+    &.active {
+        background:white;
+        color:black;
+    }
 }
 
 

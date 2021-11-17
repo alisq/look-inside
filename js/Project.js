@@ -8,6 +8,11 @@ class Project {
         this.student = content.field_student_name;
         this.instructor = content.field_instructor;
         this.instructor_machine = content.field_instructor.replaceAll(' ','_').replaceAll(',_',' ');
+
+
+        this.course = content.field_course_title;
+        this.course_machine = content.field_course_title.replaceAll(' ','_').replaceAll(',_',' ');
+
         
 
 
@@ -33,7 +38,7 @@ class Project {
     get displayTeaser() {
         /* html */
         let teaser = `
-            <div class='project-teaser' data-id='${i}'>                
+            <div class='project-teaser ${this.instructor_machine} ${this.course_machine}' data-id='${i}'>   
                 <img src='http://lookinside.ocadu.gd/${this.teaser_image}' />
                 <h2>${this.title}</h2>
                 <div class=''></div>
@@ -46,7 +51,7 @@ class Project {
 
         /* html */
         let full = `
-            <div class='project-full ${this.instructor_machine}' data-id='${i}'>   
+            <div class='project-full ${this.instructor_machine} ${this.course_machine}' data-id='${i}'>   
                 <div class="interior">
                 <button class='close'>&times;</button>
                 <div class='gallery ${(this.project_images.length > 1) || (this.video != '') ? 'carousel' : null}' >

@@ -1,4 +1,10 @@
+let instructors = [];
+let uInstructors, uClasses;
+classes = [];
+
 url = 'https://lookinside.ocadu.gd/json/projects';
+
+
 
 
 fetch(url)
@@ -6,6 +12,16 @@ fetch(url)
   .then(data => {
       for (i = 0;i<data.length;i++) {
           
+        let inst = data[i].field_instructor.split(", ")
+        inst.forEach(element => {
+            instructors.push(element)
+        });
+
+        
+            classes.push(data[i].field_course_title)
+        
+
+        
 
           let item = new Project(data[i]);          
           $(item.displayTeaser)
@@ -25,8 +41,25 @@ fetch(url)
           
       }
 
-
       
+      uInstructors = instructors.filter(function(item, pos) {
+        return instructors.indexOf(item) == pos;
+    })
+    
+    uClasses = classes.filter(function(item, pos) {        
+        return classes.indexOf(item) == pos;
+    })
+      
+
+    // for (i=0;i<uInstructors.length;i++) {
+    //     b = `<button class='filter-button' data-filter='.${uInstructors[i].replaceAll(' ','_')}'>${uInstructors[i]}</button>`
+    //     $("#menu-instructors").append(b)
+    // }
+
+    for (i=0;i<uClasses.length;i++) {
+        b = `<button class='filter-button' data-filter='.${uClasses[i].replaceAll(' ','_')}'>${uClasses[i]}</button>`
+        $("#menu-classes").append(b)
+    }
   });
 
 
@@ -37,3 +70,14 @@ fetch(url)
 
       $('.project-full').remove();
   })
+
+
+
+  $(document).on('click','.filter-button',function(e){
+      $('.filter-button').removeClass('active')
+      $(this).addClass('active')
+        f = $(this).data('filter')
+    $('.project-teaser').not(f).slideUp()
+    $(f).slideDown()
+  })
+  
