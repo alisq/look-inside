@@ -17,6 +17,8 @@ fetch(url)
             instructors.push(element)
         });
 
+
+            console.log(data[i].field_course_title)
         
             classes.push(data[i].field_course_title)
         
@@ -37,6 +39,8 @@ fetch(url)
                         wrapAround:true
                         // prevNextButtons: false
                       });
+
+                      $(".project-full").slideDown()
                 })
           
       }
@@ -68,7 +72,10 @@ fetch(url)
   $(document).on('click','.project-full, .close',function(e){
     if(e.target !== e.currentTarget) return;
 
-      $('.project-full').remove();
+      $('.project-full').slideUp();
+      setTimeout(function(){
+        $('.project-full').remove();
+      },300)
   })
 
 

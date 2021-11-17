@@ -8,7 +8,7 @@ class Project {
         this.student = content.field_student_name;
         this.instructor = content.field_instructor;
         this.instructor_machine = content.field_instructor.replaceAll(' ','_').replaceAll(',_',' ');
-
+        this.year = content.field_project_year;
 
         this.course = content.field_course_title;
         this.course_machine = content.field_course_title.replaceAll(' ','_').replaceAll(',_',' ');
@@ -41,7 +41,7 @@ class Project {
             <div class='project-teaser ${this.instructor_machine} ${this.course_machine}' data-id='${i}'>   
                 <img src='http://lookinside.ocadu.gd/${this.teaser_image}' />
                 <h2>${this.title}</h2>
-                <div class=''></div>
+                
             </div>
         `;
         return teaser;
@@ -63,7 +63,9 @@ class Project {
                 <h2>${this.title}</h2>
                 <h3>${this.student}</h3>
                 ${this.desc}
-                <div class=''></div>
+                <div class='instructor'><label>Instructor:</label> ${this.instructor}</div>
+                <div class='class'><label>Course:</label> ${this.course}</div>
+                <div class='year'><label>Year:</label> ${this.year}</div>
                 </div>
             </div>
 
