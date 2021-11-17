@@ -10,8 +10,17 @@ fetch(url)
           let item = new Project(data[i]);          
           $(item.displayTeaser)
                 .appendTo('#container')
-                .click(function(){                
+                .click(function(){      
+                    $('.project-full').remove()          
                     $('body').append(item.displayFull)
+
+                    $('.carousel').flickity({
+                        // options
+                        cellAlign: 'left',
+                        contain: true,
+                        wrapAround:true
+                        // prevNextButtons: false
+                      });
                 })
           
       }
@@ -22,3 +31,9 @@ fetch(url)
 
 
   
+
+  $(document).on('click','.project-full, .close',function(e){
+    if(e.target !== e.currentTarget) return;
+
+      $('.project-full').remove();
+  })
