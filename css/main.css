@@ -20,7 +20,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0.25em 0;
-  max-width: 1600px;
+  max-width: 1400px;
   margin: auto; }
 
 #menu-classes {
@@ -41,6 +41,9 @@ header {
   bottom: 100%;
   height: 25px; }
 
+.flickity-prev-next-button {
+  border: 5px solid #000; }
+
 .flickity-prev-next-button.next {
   right: -2em; }
 
@@ -54,15 +57,23 @@ header {
 #container {
   column-count: 4;
   column-gap: 1em;
-  max-width: 1600px;
+  max-width: 1400px;
   margin: auto; }
+
+h2 {
+  margin-top: 0.5rem; }
+
+h2,
+p {
+  margin-bottom: 0.5rem; }
 
 .project-teaser {
   break-inside: avoid;
   padding-bottom: 0.5em;
   margin-bottom: 1em;
   cursor: pointer;
-  border: 3px solid #FFF; }
+  border: 3px solid #FFF;
+  transition: background 0.2s, color 0.2s; }
   .project-teaser img {
     width: 100%; }
   .project-teaser:hover {
@@ -108,7 +119,8 @@ button {
   color: #FFF;
   border-radius: 1em;
   margin: 0.25em;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s; }
   button:hover, button.active {
     background: white;
     color: black; }
@@ -146,5 +158,9 @@ button.close:hover {
     transform: none; } }
 
 @media (max-width: 800px) {
+  header {
+    padding: 0.25em; }
   #container {
-    column-count: 2; } }
+    column-count: 2;
+    column-gap: 0.5em;
+    padding: 0.5em; } }

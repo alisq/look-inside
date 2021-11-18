@@ -36,7 +36,13 @@ fetch(url)
                         // options
                         cellAlign: 'left',
                         contain: true,
-                        wrapAround:true
+                        wrapAround:true,
+                        arrowShape: { 
+                          x0: 10,
+                          x1: 60, y1: 50,
+                          x2: 80, y2: 30,
+                          x3: 50
+                        }
                         // prevNextButtons: false
                       });
 
